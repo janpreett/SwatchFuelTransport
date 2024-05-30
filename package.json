@@ -1,8 +1,3 @@
-"scripts": {
-  "build": "echo 'Build command not needed for Firebase deployment'",
-  "deploy": "firebase deploy --token secrets.GITHUB_TOKEN"
-},
-
 {
   "dependencies": {
     "firebase": "^10.12.2"
