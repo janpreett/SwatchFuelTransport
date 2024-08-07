@@ -1,4 +1,4 @@
-import { db } from './firebaseConfig.js';
+import { db } from '../../src/firebaseConfig.js';
 import { collection, addDoc, getDocs, query, where, deleteDoc, doc, updateDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-firestore.js";
 
 const expenseCategory = document.getElementById('expense-category');
