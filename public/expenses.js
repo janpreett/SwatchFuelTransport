@@ -9,9 +9,9 @@ const expenseListContainer = document.getElementById('expense-list-container');
 
 const categoriesWithSubcategories = ['truck', 'tanker','diesel'];
 const subcategories = {
-    'truck': ['Cti', 'Prime-Truck'],
-    'tanker': ['Cti', 'Prime-Truck'],
-    'diesel': ['Sartaj', 'Burlington','Deptford',]
+    'truck': ['Cti', 'Prime-Truck', 'SWS Fuel'],
+    'tanker': ['Cti', 'Prime-Truck','SWS Fuel'],
+    'diesel': ['Sartaj', 'Burlington','Deptford','SWS Fuel',]
 };
 
 let editingExpenseId = null;
@@ -55,21 +55,21 @@ function renderExpenseForm(category, expenseData = {}) {
         formHtml += `<label for="sub-category">Select Sub-Category:</label><select id="sub-category">${subcategories['truck'].map(sub => `<option value="${sub}" ${expenseData.subCategory === sub ? 'selected' : ''}>${sub.replace('-', ' ').toUpperCase()}</option>`).join('')}</select>`;
         formHtml += `<label for="truck-num">Truck #:</label><input type="text" id="truck-num" value="${expenseData.truckNum || ''}" required>`;
         formHtml += `<label for="repair-info">Repair Info:</label><textarea id="repair-info" rows="4" cols="50" required>${expenseData.repairInfo || ''}</textarea>`;
-        formHtml += `<label for="price">Price:</label><input type="number" id="price" value="${expenseData.price || ''}" required>`;
+        formHtml += `<label for="price">Price:</label><input type="number" id="price" step="0.01" value="${expenseData.price || ''}" required>`;
     } else if (category === 'tanker') {
         formHtml += `<label for="sub-category">Select Sub-Category:</label><select id="sub-category">${subcategories['tanker'].map(sub => `<option value="${sub}" ${expenseData.subCategory === sub ? 'selected' : ''}>${sub.replace('-', ' ').toUpperCase()}</option>`).join('')}</select>`;
         formHtml += `<label for="tanker-num">Tanker #:</label><input type="text" id="tanker-num" value="${expenseData.tankerNum || ''}" required>`;
         formHtml += `<label for="repair-info">Repair Info:</label><textarea id="repair-info" rows="4" cols="50" required>${expenseData.repairInfo || ''}</textarea>`;
-        formHtml += `<label for="price">Price:</label><input type="number" id="price" value="${expenseData.price || ''}" required>`;
+        formHtml += `<label for="price">Price:</label><input type="number" id="price" step="0.01" value="${expenseData.price || ''}" required>`;
     } else if (category === 'dmv' || category === 'parts' || category === 'phone-tracker' || category === 'other' || category === 'office-supply') {
         formHtml += `<label for="description">Description:</label><textarea id="description" rows="4" cols="50" required>${expenseData.description || ''}</textarea>`;
-        formHtml += `<label for="amount">Amount:</label><input type="number" id="amount" value="${expenseData.amount || ''}" required>`;
+        formHtml += `<label for="amount">Amount:</label><input type="number" id="amount" step="0.01" value="${expenseData.amount || ''}" required>`;
     } else if (category === 'toll' || category === 'parking' || category === 'def') {
-        formHtml += `<label for="amount">Amount:</label><input type="number" id="amount" value="${expenseData.amount || ''}" required>`;
+        formHtml += `<label for="amount">Amount:</label><input type="number" id="amount" step="0.01" value="${expenseData.amount || ''}" required>`;
     } else if (category === 'diesel') {
         formHtml += `<label for="sub-category">Select Sub-Category:</label><select id="sub-category">${subcategories['diesel'].map(sub => `<option value="${sub}" ${expenseData.subCategory === sub ? 'selected' : ''}>${sub.replace('-', ' ').toUpperCase()}</option>`).join('')}</select>`;
-        formHtml += `<label for="gallon">Gallon:</label><input type="number" id="gallon" value="${expenseData.gallon || ''}" required>`;
-        formHtml += `<label for="price">Price:</label><input type="number" id="price" value="${expenseData.price || ''}" required>`;
+        formHtml += `<label for="gallon">Gallon:</label><input type="number" id="gallon" step="0.01" value="${expenseData.gallon || ''}" required>`;
+        formHtml += `<label for="price">Price:</label><input type="number" id="price" step="0.01" value="${expenseData.price || ''}" required>`;
     }
 
     formHtml += `<button type="submit">${editingExpenseId ? 'Update' : 'Submit'}</button></form>`;
@@ -188,29 +188,29 @@ async function renderExpenseList(category) {
                     expenseListHtml += `<td style="border: 1px solid #ddd;padding: 8px;">${expense.subCategory}</td>`;
                     expenseListHtml += `<td style="border: 1px solid #ddd;padding: 8px;">${expense.truckNum}</td>`;
                     expenseListHtml += `<td style="border: 1px solid #ddd;padding: 8px;">${expense.repairInfo}</td>`;
-                    expenseListHtml += `<td style="border: 1px solid #ddd;padding: 8px;">${expense.price}</td>`;
+                    expenseListHtml += `<td style="border: 1px solid #ddd;padding: 8px;">$${expense.price}</td>`;
                     totalPrice += parseFloat(expense.price) || 0;
                 } else if (category === 'tanker') {
                     expenseListHtml += `<td style="border: 1px solid #ddd;padding: 8px;">${expense.date}</td>`;
                     expenseListHtml += `<td style="border: 1px solid #ddd;padding: 8px;">${expense.subCategory}</td>`;
                     expenseListHtml += `<td style="border: 1px solid #ddd;padding: 8px;">${expense.tankerNum}</td>`;
                     expenseListHtml += `<td style="border: 1px solid #ddd;padding: 8px;">${expense.repairInfo}</td>`;
-                    expenseListHtml += `<td style="border: 1px solid #ddd;padding: 8px;">${expense.price}</td>`;
+                    expenseListHtml += `<td style="border: 1px solid #ddd;padding: 8px;">$${expense.price}</td>`;
                     totalPrice += parseFloat(expense.price) || 0;
                 } else if (category === 'dmv' || category === 'parts' || category === 'phone-tracker' || category === 'other' || category === 'office-supply') {
                     expenseListHtml += `<td style="border: 1px solid #ddd;padding: 8px;">${expense.date}</td>`;
                     expenseListHtml += `<td style="border: 1px solid #ddd;padding: 8px;">${expense.description}</td>`;
-                    expenseListHtml += `<td style="border: 1px solid #ddd;padding: 8px;">${expense.amount}</td>`;
+                    expenseListHtml += `<td style="border: 1px solid #ddd;padding: 8px;">$${expense.amount}</td>`;
                     totalAmount += parseFloat(expense.amount) || 0;
                 } else if (category === 'toll' || category === 'parking' || category === 'def') {
                     expenseListHtml += `<td style="border: 1px solid #ddd;padding: 8px;">${expense.date}</td>`;
-                    expenseListHtml += `<td style="border: 1px solid #ddd;padding: 8px;">${expense.amount}</td>`;
+                    expenseListHtml += `<td style="border: 1px solid #ddd;padding: 8px;">$${expense.amount}</td>`;
                     totalAmount += parseFloat(expense.amount) || 0;
                 } else if (category === 'diesel') {
                     expenseListHtml += `<td style="border: 1px solid #ddd;padding: 8px;">${expense.date}</td>`;
                     expenseListHtml += `<td style="border: 1px solid #ddd;padding: 8px;">${expense.subCategory}</td>`;
                     expenseListHtml += `<td style="border: 1px solid #ddd;padding: 8px;">${expense.gallon}</td>`;
-                    expenseListHtml += `<td style="border: 1px solid #ddd;padding: 8px;">${expense.price}</td>`;
+                    expenseListHtml += `<td style="border: 1px solid #ddd;padding: 8px;">$${expense.price}</td>`;
                     totalGallon += parseFloat(expense.gallon) || 0;
                     totalPrice += parseFloat(expense.price) || 0;
                 }
@@ -222,14 +222,14 @@ async function renderExpenseList(category) {
             expenseListHtml += '<tr>';
             if (category === 'truck' || category === 'tanker') {
                 expenseListHtml += '<td colspan="4" style="border: 1px solid #ddd;padding: 8px;text-align:right;">Total:</td>';
-                expenseListHtml += `<td style="border: 1px solid #ddd;padding: 8px;">${totalPrice.toFixed(2)}</td>`;
+                expenseListHtml += `<td style="border: 1px solid #ddd;padding: 8px;">$${totalPrice.toFixed(2)}</td>`;
             } else if (category === 'dmv' || category === 'parts' || category === 'phone-tracker' || category === 'other' || category === 'office-supply' || category === 'toll' || category === 'parking' || category === 'def') {
                 expenseListHtml += '<td colspan="2" style="border: 1px solid #ddd;padding: 8px;text-align:right;">Total:</td>';
-                expenseListHtml += `<td style="border: 1px solid #ddd;padding: 8px;">${totalAmount.toFixed(2)}</td>`;
+                expenseListHtml += `<td style="border: 1px solid #ddd;padding: 8px;">$${totalAmount.toFixed(2)}</td>`;
             } else if (category === 'diesel') {
                 expenseListHtml += '<td colspan="2" style="border: 1px solid #ddd;padding: 8px;text-align:right;">Total:</td>';
                 expenseListHtml += `<td style="border: 1px solid #ddd;padding: 8px;">${totalGallon.toFixed(2)}</td>`;
-                expenseListHtml += `<td style="border: 1px solid #ddd;padding: 8px;">${totalPrice.toFixed(2)}</td>`;
+                expenseListHtml += `<td style="border: 1px solid #ddd;padding: 8px;">$${totalPrice.toFixed(2)}</td>`;
             }
             expenseListHtml += '<td style="border: 1px solid #ddd;padding: 8px;"></td>';
             expenseListHtml += '</tr>';
