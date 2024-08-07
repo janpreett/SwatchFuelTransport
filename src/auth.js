@@ -1,5 +1,7 @@
-import { auth } from '../../src/firebaseConfig.js';
+import { auth } from './firebaseConfig.js';
 import { signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js";
+import { setPersistence, browserLocalPersistence } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js";
+import { auth } from './firebaseConfig.js';
 
 const loginForm = document.getElementById('login-form');
 const authSection = document.getElementById('auth-section');
@@ -7,6 +9,14 @@ const expensesSection = document.getElementById('expenses-section');
 const logoutButton = document.getElementById('logout-button');
 const errorMessage = document.getElementById('error-message');
 const header = document.querySelector('header');
+
+setPersistence(auth, browserLocalPersistence)
+  .then(() => {
+
+  })
+  .catch((error) => {
+    console.error("Error setting persistence: ", error);
+  });
 
 loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
