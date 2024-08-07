@@ -1,4 +1,4 @@
-import { db } from './firebaseConfig';
+import { db } from './firebaseConfig.js';
 import { collection, addDoc, getDocs, query, where, deleteDoc, doc, updateDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-firestore.js";
 
 const expenseCategory = document.getElementById('expense-category');
@@ -10,8 +10,8 @@ const expenseListContainer = document.getElementById('expense-list-container');
 const categoriesWithSubcategories = ['truck', 'tanker','diesel'];
 const subcategories = {
     'truck': ['Cti', 'Prime-Truck', 'SWS Fuel'],
-    'tanker': ['Cti', 'Prime-Truck','SWS Fuel'],
-    'diesel': ['Sartaj', 'Burlington','Deptford','SWS Fuel',]
+    'tanker': ['Cti', 'Prime-Truck', 'SWS Fuel'],
+    'diesel': ['Sartaj', 'Burlington','Deptford', 'SWS Fuel',]
 };
 
 let editingExpenseId = null;
