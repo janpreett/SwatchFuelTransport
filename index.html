@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swatch Fuel Transport</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="firebaseConfig.js"></script>
+    <script type="module" src="auth.js"></script>
+    <script type="module" src="expenses.js"></script>
+</head>
+<body>
+    <header class="hidden">
+        <div class="logo">Swatch Fuel Transport</div>
+        <nav>
+            <ul>
+                <li><a href="#" id="expenses-link">Expenses</a></li>
+                <li><button id="logout-button">Logout</button></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="auth-section">
+            <div class="login-box">
+                <h2>Swatch Fuel Transport</h2>
+                <form id="login-form">
+                    <label for="email">Username:</label>
+                    <input type="email" id="email" required>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" required>
+                    <button type="submit">Login</button>
+                </form>
+                <p id="error-message" class="hidden"></p>
+            </div>
+        </section>
+        <section id="expenses-section" class="hidden">
+            <h2>Expenses</h2>
+            <div class="expense-actions">
+                <select id="expense-category">
+                    <option value="truck">Truck</option>
+                    <option value="tanker">Tanker</option>
+                    <option value="dmv">DMV</option>
+                    <option value="parts">Parts</option>
+                    <option value="phone-tracker">Phone & Tracker</option>
+                    <option value="other">Other Expense</option>
+                    <option value="toll">Toll</option>
+                    <option value="parking">Parking</option>
+                    <option value="office-supply">Office Supply</option>
+                    <option value="diesel">Diesel</option>
+                    <option value="def">DEF</option>
+                </select>
+                <button id="add-expense-button">Add Expense</button>
+                <button id="view-expense-button">View Expense</button>
+            </div>
+            <div id="expense-form-container"></div>
+            <div id="expense-list-container" class="hidden">
+                <div class="search-container">
+                    <input type="text" id="expense-search" placeholder="Search expenses...">
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

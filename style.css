@@ -1,0 +1,225 @@
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    height: 40px;
+}
+
+.logo {
+    font-size: 2em;
+    font-weight: bold;
+    color: white;
+}
+
+#logout-button{
+    background: red;
+    margin-top: 20%;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav a, nav button {
+    color: #f0f0f0;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover, nav button:hover {
+    background-color: #328CC1;
+    border-radius: 5px;
+}
+
+main {
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: white;
+    text-align: center;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, select, button, textarea {
+    width: 100%;
+    padding: 15px;
+    font-size: 1em;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    color: #000000;
+    box-sizing: border-box; 
+}
+
+button {
+    background-color: #000080; 
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: #ffffff;
+}
+
+button:hover {
+    background-color: #0B3C5D; 
+}
+
+.login-box {
+    background-color: #000000; 
+    border: 1px solid #ffffff;
+    padding: 40px;
+    width: 350px;
+    margin: 50px auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.login-box h2 {
+    margin-top: 0;
+    font-weight: bold;
+}
+
+.login-box form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.expense-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px; 
+}
+
+.expense-actions button {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.expense-actions select {
+    flex: 1;
+    padding: 15px;
+    font-size: 1em;
+    margin-right: 10px;
+    border-radius: 5px;
+    background-color: #0B3C5D; 
+    color: #ffffff;
+}
+
+#expense-form-container, #expense-list-container {
+    background-color: #000000; 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+    overflow: hidden; 
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    table-layout: fixed; 
+}
+
+table th, table td {
+    border: 1px solid #444;
+    padding: 15px;
+    text-align: left;
+    word-wrap: break-word; 
+}
+
+table th {
+    background-color: #000080; 
+    cursor: pointer;
+}
+
+table th:hover {
+    background-color: #328CC1; 
+}
+
+table td button {
+    padding: 10px;
+    margin: 5px;
+    background-color: #328CC1; 
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+table td button:hover {
+    background-color: #0B3C5D; 
+}
+
+table td .btn-group {
+    display: flex;
+    gap: 10px;
+}
+
+footer {
+    background-color: #000080;
+    padding: 20px;
+    text-align: center;
+    color: #f0f0f0;
+}
+
+.search-container {
+    margin-bottom: 20px;
+}
+
+#expense-search {
+    width: 100%;
+    padding: 15px;
+    font-size: 1em;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: #000000;
+    box-sizing: border-box;
+}
