@@ -1,7 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+:root {
+    /* colors */
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --color-navy: #000099;
+    --color-blue-light: #328CC1;
+    --color-blue-dark: #0B3C5D;
+    --color-gray-light: #f0f0f0;
+    --color-gray-dark: #444;
+    --color-red: #dc2626;
+    --shadow-dark: rgba(0, 0, 0, 0.3);
+    --shadow-darker: rgba(0, 0, 0, 0.5);
+
+    /* Spacing system */
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 15px;
+    --spacing-lg: 20px;
+    --spacing-xl: 40px;
+
+    /* Container sizes */
+    --container-sm: 350px;
+    --container-md: 768px;
+    --container-lg: 1200px;
+
+    /* Border radius */
+    --radius-sm: 5px;
+    --radius-md: 10px;
+
+    /* Font sizes */
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.25rem;
+    --text-xl: 2rem;
+
+       /* Responsive breakpoints */
+       --mobile-sm: 320px;
+       --mobile: 480px;
+       --tablet: 768px;
+       --laptop: 1024px;
+   
+ 
+}
+
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    background-color: #000000;
-    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--color-black);
+    color: var(--color-white);
     margin: 0;
     padding: 0;
 }
@@ -15,19 +61,19 @@ header {
     justify-content: space-between;
     align-items: center;
     background-color: transparent;
-    padding: 10px 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    height: 40px;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    box-shadow: 0 4px 8px var(--shadow-dark);
+    height: var(--spacing-xl);
 }
 
 .logo {
-    font-size: 2em;
+    font-size: var(--text-xl);
     font-weight: bold;
-    color: white;
+    color: var(--color-white);
 }
 
-#logout-button{
-    background: red;
+#logout-button {
+    background: var(--color-red);
     margin-top: 20%;
 }
 
@@ -36,7 +82,7 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 20px;
+    gap: var(--spacing-lg);
     align-items: center;
 }
 
@@ -45,78 +91,78 @@ nav ul li {
 }
 
 nav a, nav button {
-    color: #f0f0f0;
+    color: var(--color-gray-light);
     text-decoration: none;
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 1em;
-    padding: 10px 15px;
+    font-size: var(--text-base);
+    padding: var(--spacing-sm) var(--spacing-md);
     transition: background-color 0.3s ease;
 }
 
 nav a:hover, nav button:hover {
-    background-color: #328CC1;
-    border-radius: 5px;
+    background-color: var(--color-blue-light);
+    border-radius: var(--radius-sm);
 }
 
 main {
-    padding: 40px;
-    max-width: 1200px;
+    padding: var(--spacing-xl);
+    max-width: var(--container-lg);
     margin: 0 auto;
 }
 
 h2 {
     margin-top: 0;
-    margin-bottom: 20px;
-    font-size: 2em;
-    color: white;
+    margin-bottom: var(--spacing-lg);
+    font-size: var(--text-xl);
+    color: var(--color-white);
     text-align: center;
 }
 
 form {
-    margin-bottom: 20px;
+    margin-bottom: var(--spacing-lg);
 }
 
 label {
     font-weight: bold;
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: var(--spacing-xs);
 }
 
 input, select, button, textarea {
     width: 100%;
-    padding: 15px;
-    font-size: 1em;
-    border: 1px solid #000000;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    background-color: #ffffff;
-    color: #000000;
-    box-sizing: border-box; 
+    padding: var(--spacing-md);
+    font-size: var(--text-base);
+    border: 1px solid var(--color-black);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--spacing-lg);
+    background-color: var(--color-white);
+    color: var(--color-black);
+    box-sizing: border-box;
 }
 
 button {
-    background-color: #000080; 
+    background-color: var(--color-navy);
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    color: #ffffff;
+    color: var(--color-white);
 }
 
 button:hover {
-    background-color: #0B3C5D; 
+    background-color: var(--color-blue-dark);
 }
 
 .login-box {
-    background-color: #000000; 
-    border: 1px solid #ffffff;
-    padding: 40px;
-    width: 350px;
-    margin: 50px auto;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    color: #ffffff;
+    background-color: var(--color-black);
+    border: 1px solid var(--color-white);
+    padding: var(--spacing-xl);
+    width: var(--container-sm);
+    margin: var(--spacing-xl) auto;
+    box-shadow: 0 0 var(--spacing-lg) var(--shadow-darker);
+    border-radius: var(--radius-md);
+    color: var(--color-white);
     text-align: center;
 }
 
@@ -134,92 +180,251 @@ button:hover {
 .expense-actions {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px; 
+    margin-bottom: var(--spacing-sm);
 }
 
 .expense-actions button {
     flex: 1;
-    margin-right: 10px;
+    margin-right: var(--spacing-sm);
 }
 
 .expense-actions select {
     flex: 1;
-    padding: 15px;
-    font-size: 1em;
-    margin-right: 10px;
-    border-radius: 5px;
-    background-color: #0B3C5D; 
-    color: #ffffff;
+    padding: var(--spacing-md);
+    font-size: var(--text-base);
+    margin-right: var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-blue-dark);
+    color: var(--color-white);
 }
 
 #expense-form-container, #expense-list-container {
-    background-color: #000000; 
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    margin-bottom: 20px;
-    overflow: hidden; 
+    background-color: var(--color-black);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    box-shadow: 0 0 var(--spacing-sm) var(--shadow-darker);
+    margin-bottom: var(--spacing-lg);
+    overflow: hidden;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 20px;
-    table-layout: fixed; 
+    margin-bottom: var(--spacing-lg);
+    table-layout: fixed;
 }
 
 table th, table td {
-    border: 1px solid #444;
-    padding: 15px;
+    border: 1px solid var(--color-gray-dark);
+    padding: var(--spacing-md);
     text-align: left;
-    word-wrap: break-word; 
+    word-wrap: break-word;
 }
 
 table th {
-    background-color: #000080; 
+    background-color: var(--color-navy);
     cursor: pointer;
 }
 
 table th:hover {
-    background-color: #328CC1; 
+    background-color: var(--color-blue-light);
 }
 
 table td button {
-    padding: 10px;
-    margin: 5px;
-    background-color: #328CC1; 
+    padding: var(--spacing-sm);
+    margin: var(--spacing-xs);
+    background-color: var(--color-blue-light);
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 table td button:hover {
-    background-color: #0B3C5D; 
+    background-color: var(--color-blue-dark);
 }
 
 table td .btn-group {
     display: flex;
-    gap: 10px;
+    gap: var(--spacing-sm);
 }
 
 footer {
-    background-color: #000080;
-    padding: 20px;
+    background-color: var(--color-navy);
+    padding: var(--spacing-lg);
     text-align: center;
-    color: #f0f0f0;
+    color: var(--color-gray-light);
 }
 
 .search-container {
-    margin-bottom: 20px;
+    margin-bottom: var(--spacing-lg);
 }
 
 #expense-search {
     width: 100%;
-    padding: 15px;
-    font-size: 1em;
-    border: 1px solid #000000;
-    border-radius: 5px;
-    background-color: #ffffff;
-    color: #000000;
+    padding: var(--spacing-md);
+    font-size: var(--text-base);
+    border: 1px solid var(--color-black);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-white);
+    color: var(--color-black);
     box-sizing: border-box;
+}
+
+/* Base styles remain the same until the media queries */
+
+@media screen and (max-width: 1024px) {
+    main {
+        max-width: 90%;
+    }
+
+    .expense-actions {
+        gap: var(--spacing-sm);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    main {
+        width: 95%;
+        padding: var(--spacing-sm);
+    }
+
+    #expense-form-container, 
+    #expense-list-container {
+        width: 100%;
+        padding: var(--spacing-sm);
+    }
+
+    table {
+        width: 100%;
+    }
+
+    table th, table td {
+        padding: var(--spacing-xs);
+        font-size: var(--text-sm);
+    }
+
+    .expense-actions {
+        width: 100%;
+    }
+
+    input, select, button, textarea {
+        width: 100%;
+    }
+
+    .login-box {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    :root {
+        --text-xl: 1.5rem;
+        --text-lg: 1.125rem;
+        --text-base: 0.875rem;
+    }
+
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: var(--spacing-sm);
+    }
+
+    .logo {
+        font-size: var(--text-lg);
+        margin-bottom: var(--spacing-sm);
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        gap: var(--spacing-xs);
+    }
+
+    nav ul li {
+        width: 100%;
+    }
+
+    nav a, nav button {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: var(--spacing-sm);
+    }
+
+    h2 {
+        font-size: var(--text-lg);
+        margin-bottom: var(--spacing-md);
+    }
+
+    form {
+        margin-bottom: var(--spacing-md);
+    }
+
+    label {
+        font-size: var(--text-base);
+    }
+
+    input, select, button, textarea {
+        padding: var(--spacing-sm);
+        margin-bottom: var(--spacing-md);
+        font-size: var(--text-base);
+    }
+
+    .login-box {
+        padding: var(--spacing-lg) var(--spacing-md);
+        margin: var(--spacing-lg) auto;
+    }
+
+    table {
+        font-size: var(--text-sm);
+    }
+
+    table td, table th {
+        padding: var(--spacing-xs);
+    }
+
+    table td button {
+        padding: var(--spacing-xs);
+        font-size: var(--text-sm);
+    }
+
+    footer {
+        padding: var(--spacing-md);
+        font-size: var(--text-sm);
+    }
+
+    .search-container {
+        margin-bottom: var(--spacing-md);
+    }
+
+    #expense-search {
+        padding: var(--spacing-sm);
+    }
+}
+
+@media screen and (max-width: 320px) {
+    :root {
+        --spacing-xl: 30px;
+        --spacing-lg: 15px;
+        --spacing-md: 10px;
+        --spacing-sm: 5px;
+        --spacing-xs: 3px;
+    }
+
+    .logo {
+        font-size: var(--text-base);
+    }
+
+    h2 {
+        font-size: var(--text-base);
+    }
+
+    table td button {
+        width: 100%;
+        margin: var(--spacing-xs) 0;
+    }
+
+    .btn-group {
+        flex-direction: column;
+    }
 }
